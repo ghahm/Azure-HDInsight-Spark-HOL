@@ -26,5 +26,9 @@ carrierRdd = carrierRdd.map(lambda x:(x[1],x[0])).sortByKey(ascending=False)
 carrierRdd.take(10)
 
 # 1.6. (통합 코드) 운항 편수 Top 10 항공사 조회 -> 1.2 ~ 1.5를 통합 코드로
-carrierRdd = flightRdd.map(lambda line: (line[5],1)).reduceByKey(lambda a, b: a+b).map(lambda x:(x[1],x[0])).sortByKey(ascending=False).map(lambda x:(x[1],x[0]))
+carrierRdd = flightRdd.map(lambda line: (line[5],1)). \
+                                reduceByKey(lambda a, b: a+b). \
+                                map(lambda x:(x[1],x[0])). \
+                                sortByKey(ascending=False). \
+                                map(lambda x:(x[1],x[0]))
 carrierRdd.take(10)
