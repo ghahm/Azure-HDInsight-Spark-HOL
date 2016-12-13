@@ -8,9 +8,11 @@ baseRdd.take(1) # 첫번째 행 return
 #baseRdd.collect() # 전체 데이터 return
 
 # 2. Transformations 함수 예: map() vs. flatMap  아래 2개의 take() 결과 비교
+# map() : Return a new RDD by applying a function to each element of this RDD
 splitRdd01 = baseRdd.map(lambda line: line.split(" "))
 splitRdd01.take(5)
 
+# flatMap() : Return a new RDD by first applying a function to all elements of this RDD, and then flattening the results
 splitRdd02 = baseRdd.flatMap(lambda line: line.split(" "))
 splitRdd02.take(5)
 
