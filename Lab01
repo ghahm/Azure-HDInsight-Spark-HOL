@@ -1,0 +1,25 @@
+# Word count 예제
+from pyspark.sql import Row
+from pyspark.sql.types import *
+
+# 1. RDD 생성하고 자료 조회하기
+baseRdd = sc.textFile('wasbs:///tmp/holdata/selfishgiant.txt')
+baseRdd.take(1) # 첫번째 행 return
+baseRdd.collect() # 전체 데이터 return
+
+# 2. Transformations 함수 예: map() vs. flatMap  아래 2개의 take() 결과 비교
+splitRdd01 = baseRdd.map(lambda line: line.split(" "))
+splitRdd01.take(5)
+
+splitRdd02 = baseRdd.flatMap(lambda line: line.split(" "))
+splitRdd02.take(5)
+
+# 3. splitRdd02의 각 Key에 Integer 값을 assign (Word count를 위한 사전 작업)
+mappedRdd = splitRdd02.map(lambda line: (line,1))
+mappedRdd.take(5)
+
+# 4. mappedRdd의 각 Key 별로 aggregation을 수행하여 각 단어의 개수 계산하기
+reducedRdd = mappedRdd.reduceByKey(lambda a,b: a+b) # 각 Key의 Integer 값을 합산
+reducedRdd.take(20)
+
+reducedRdd.collect()
