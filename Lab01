@@ -3,9 +3,9 @@ from pyspark.sql import Row
 from pyspark.sql.types import *
 
 # 1. RDD 생성하고 자료 조회하기
-baseRdd = sc.textFile('wasbs:///tmp/holdata/selfishgiant.txt')
+baseRdd = sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/Lab01/selfishgiant.txt') #text file load
 baseRdd.take(1) # 첫번째 행 return
-baseRdd.collect() # 전체 데이터 return
+#baseRdd.collect() # 전체 데이터 return
 
 # 2. Transformations 함수 예: map() vs. flatMap  아래 2개의 take() 결과 비교
 splitRdd01 = baseRdd.map(lambda line: line.split(" "))
