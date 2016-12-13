@@ -1,4 +1,4 @@
-# <분석 요건> Find the airline with the most delays over 15 min
+# <분석 요건> 15분을 초과하는 지연 사례가 있었던 항공사
 
 # 2.1. flightRDD 생성하기
 from pyspark.sql import Row
