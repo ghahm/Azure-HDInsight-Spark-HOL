@@ -6,7 +6,8 @@ flightRdd.take(3)
 #flightRdd.count()
 
 # 2.2 지연 시간 15분 초과 항공편 return -> UniqueCarrier, DepDelay return
-delayedFlightRDD = flightRdd.filter(lambda line: int(line[11]) > 15).map(lambda line:(line[5],line[11])) # UniqueCarrier, DepDelay
+delayedFlightRDD = flightRdd.filter(lambda line: int(line[11]) > 15). \
+                                        map(lambda line:(line[5],line[11])) # UniqueCarrier, DepDelay
 delayedFlightRDD.take(5)
 #delayedFlightRDD.count()
 
