@@ -1,4 +1,4 @@
-# Word count 예제
+## Word count 예제
 from pyspark.sql import Row
 from pyspark.sql.types import *
 
@@ -20,6 +20,6 @@ mappedRdd.take(5)
 
 # 4. mappedRdd의 각 Key 별로 aggregation을 수행하여 각 단어의 개수 계산하기
 reducedRdd = mappedRdd.reduceByKey(lambda a,b: a+b) # 각 Key의 Integer 값을 합산
-reducedRdd.take(20)
+#reducedRdd.take(20)
 
 reducedRdd.collect()
