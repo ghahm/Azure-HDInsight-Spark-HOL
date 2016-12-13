@@ -1,7 +1,5 @@
 
-## Word count 예제
-from pyspark.sql import Row
-from pyspark.sql.types import *
+# Word count 예제
 
 # 1. RDD 생성하고 자료 조회하기
 baseRdd = sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/Lab01/selfishgiant.txt') #text file load
