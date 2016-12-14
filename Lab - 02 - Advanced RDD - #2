@@ -1,7 +1,7 @@
 # <분석 요건> 15분을 초과하는 지연 사례가 있었던 항공사
 
 # 2.1. flightRDD 생성하기
-flightRdd=sc.textFile("wasbs:///tmp/holdata/flights.csv").map(lambda line: line.split(",")) 
+flightRdd=sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/HOL-Data/Lab01/flights.csv').map(lambda line: line.split(",")) 
 flightRdd.take(3)
 #flightRdd.count()
 
