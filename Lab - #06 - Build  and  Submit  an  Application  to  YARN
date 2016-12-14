@@ -9,4 +9,3 @@ splitRdd02 = baseRdd.flatMap(lambda line: line.split(" "))
 mappedRdd = splitRdd02.map(lambda line: (line,1))
 
 reducedRdd = mappedRdd.reduceByKey(lambda a,b: a+b)
-reducedRdd.show()
