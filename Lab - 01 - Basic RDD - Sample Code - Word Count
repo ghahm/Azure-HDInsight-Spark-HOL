@@ -2,7 +2,7 @@
 # Word count 예제
 
 # 1. RDD 생성하고 자료 조회하기
-baseRdd = sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/Lab01/selfishgiant.txt') #text file load
+baseRdd = sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/HOL-Data/Lab01/selfishgiant.txt') #text file load
 baseRdd.take(1) # 첫번째 행 return
 #baseRdd.collect() # 전체 데이터 return
 
