@@ -3,7 +3,7 @@
 from pyspark.sql.types import *
 
 # 2.1 flightRDD 생성하기
-flightRdd=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/Lab01/flights.csv').map(lambda line: line.split(",")) 
+flightRdd=sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/HOL-Data/Lab01/flights.csv').map(lambda line: line.split(",")) 
 flightRdd.take(3)
 #flightRdd.count()
 
