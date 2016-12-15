@@ -1,0 +1,5 @@
+azure login
+azure config mode arm
+azure group deployment create --resource-group "[Your Resource Group Name]" --name "[Your Group Deployment Name]" --template-file "[template file in local or azure blob]" -p "{\"clusterName\":{\"value\":\"[Your Cluster Name]\"}"
+# (예시) azure group deployment create --resource-group -AZURE-HOL-GRP" --name "testtmpdeployment" --template-file "C:\template.json" -p "{\"clusterName\":{\"value\":\"holspark162\"}}"
+
