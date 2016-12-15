@@ -24,8 +24,6 @@ $resourceGroupName = "[Your Resource Group Name]" # (ex) "DATA-TEST-GRP"
 $hdinsightClusterName = "[Your Cluster Name]" # (ex) "spark162demo"
 $parameters = @{clusterName="$hdinsightClusterName"}
 
-#$location = "[Target Location Name]" # (ex) "Japan West"
-
 ##########################################
 # Creating HDInsight Cluster
 ##########################################
