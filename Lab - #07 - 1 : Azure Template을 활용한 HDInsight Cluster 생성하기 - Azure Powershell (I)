@@ -9,19 +9,19 @@
 ##########################################
 # Select AzureRmSubscription if necessary
 ##########################################
-Select-AzureRmSubscription -SubscriptionName "[Your Subscription Name]"
+Select-AzureRmSubscription -SubscriptionName "[Subscription Name]"
 
 ##########################################
 # Set these variables
 ##########################################
 $templateFile = "[template file in local]" 
-# (ex) template file in local : "C:\testTemplate.json"
+# (ex) template file in local : "ARMTemplate\sparkTemplate.json"
 
 ##########################################
 # Service names and varialbes
 ##########################################
-$resourceGroupName = "[Your Resource Group Name]" # (ex) "DATA-TEST-GRP"
-$hdinsightClusterName = "[Your Cluster Name]" # (ex) "spark162demo"
+$resourceGroupName = "[Resource Group Name]" # (ex) "HOL-SPARK-GRP"
+$hdinsightClusterName = "[Cluster Name]" # (ex) "holspark162"
 $parameters = @{clusterName="$hdinsightClusterName"}
 
 ##########################################
