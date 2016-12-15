@@ -1,6 +1,6 @@
 
 ##########################################
-# <Template 파일 저장 방법>
+# <<Azure Blob에 저장한 template 파일을 이용한 Cluster 생성>
 ##########################################
 # Azure Portal 화면에서 해당 HDInsight cluster 이름을 클릭 -> 하위 메뉴 중 Automation script 클릭 (아래 계속)
 # -> 해당 cluster의 생성 template 확인 -> 다운로드 또는 복사하여 json으로 저장
