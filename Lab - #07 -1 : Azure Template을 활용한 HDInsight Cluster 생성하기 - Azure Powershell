@@ -1,0 +1,33 @@
+Select-AzureRmSubscription -SubscriptionName "[Your Subscription Name]"
+
+##########################################
+# Set these variables
+##########################################
+$templateFile = "[template file in local or azure blob]" 
+# (ex) template file in local : "C:\create-linux-based-spark-cluster-in-hdinsight-demo-1.6.2.json"
+# (ex) template file in azure blob : "C:\create-linux-based-spark-cluster-in-hdinsight-demo-1.6.2.json"
+
+##########################################
+# Service names and varialbes
+##########################################
+$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+
+$resourceGroupName = "[Your Resource Group Name]" # (ex) "DATA-TEST-GRP"
+$hdinsightClusterName = "[Your Cluster Name]" # (ex) "spark162demo"
+$defaultStorageAccountName = "[Your Storage Account Name]" # (ex) "teststorageaccount"
+$defaultBlobContainerName = $hdinsightClusterName
+
+$location = "[Target Location Name]" # (ex) "Japan West"
+
+$armDeploymentName = $namePrefix
+
+##########################################
+# Creating HDInsight Cluster
+##########################################
+Write-Host "`nCreating HDInsight Cluster ..." -ForegroundColor Green
+$parameters = @{clusterName="$hdinsightClusterName"}
+
+New-AzureRmResourceGroupDeployment `
+   -ResourceGroupName $resourceGroupName `
+   -TemplateFile $templateFile `
+   -TemplateParameterObject $parameters
