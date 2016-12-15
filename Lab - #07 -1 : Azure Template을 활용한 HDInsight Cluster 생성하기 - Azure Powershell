@@ -1,3 +1,6 @@
+# 본 Powershell 예시는 ARM template을 활용하여 기존에 생성된 HDInsight와 동일한 구성의 cluster를 재생성하는 목적의 예시이기 때문에 
+# cluster 생성을 위한 모든 정보는 ARM template 파일 내에 있다는 가정 하에 해당 ARM template을 이용하여 실행만 시킴
+
 ##########################################
 # Select AzureRmSubscription if necessary
 ##########################################
@@ -15,16 +18,14 @@ $templateFile = "[template file in local or azure blob]"
 ##########################################
 $resourceGroupName = "[Your Resource Group Name]" # (ex) "DATA-TEST-GRP"
 $hdinsightClusterName = "[Your Cluster Name]" # (ex) "spark162demo"
-$defaultStorageAccountName = "[Your Storage Account Name]" # (ex) "teststorageaccount"
-$defaultBlobContainerName = $hdinsightClusterName
+$parameters = @{clusterName="$hdinsightClusterName"}
 
-$location = "[Target Location Name]" # (ex) "Japan West"
+#$location = "[Target Location Name]" # (ex) "Japan West"
 
 ##########################################
 # Creating HDInsight Cluster
 ##########################################
 Write-Host "`nCreating HDInsight Cluster ..." -ForegroundColor Green
-$parameters = @{clusterName="$hdinsightClusterName"}
 
 New-AzureRmResourceGroupDeployment `
    -ResourceGroupName $resourceGroupName `
