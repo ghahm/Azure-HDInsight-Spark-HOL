@@ -1,3 +1,10 @@
+##########################################
+# <Template 파일 저장 방법>
+##########################################
+# Azure Portal 화면에서 해당 HDInsight cluster 이름을 클릭 -> 하위 메뉴 중 Automation script 클릭 (아래 계속)
+# -> 해당 cluster의 생성 template 확인 -> 다운로드 또는 복사하여 json으로 저장
+# 필요한 경우 New-AzureRmResourceGroupDeployment의 -TemplateParameterObject 옵션을 이용하여 template 파일의 파라미터로 전달.
+
 azure login
 azure config mode arm
 azure group deployment create --resource-group "[Your Resource Group Name]" --name "[Your Group Deployment Name]" --template-file "[template file in local or azure blob]" -p "{\"clusterName\":{\"value\":\"[Your Cluster Name]\"}"
