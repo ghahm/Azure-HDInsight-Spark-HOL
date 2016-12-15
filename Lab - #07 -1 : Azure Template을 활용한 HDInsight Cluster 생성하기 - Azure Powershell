@@ -1,3 +1,6 @@
+##########################################
+# Select AzureRmSubscription if necessary
+##########################################
 Select-AzureRmSubscription -SubscriptionName "[Your Subscription Name]"
 
 ##########################################
@@ -10,16 +13,12 @@ $templateFile = "[template file in local or azure blob]"
 ##########################################
 # Service names and varialbes
 ##########################################
-$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-
 $resourceGroupName = "[Your Resource Group Name]" # (ex) "DATA-TEST-GRP"
 $hdinsightClusterName = "[Your Cluster Name]" # (ex) "spark162demo"
 $defaultStorageAccountName = "[Your Storage Account Name]" # (ex) "teststorageaccount"
 $defaultBlobContainerName = $hdinsightClusterName
 
 $location = "[Target Location Name]" # (ex) "Japan West"
-
-$armDeploymentName = $namePrefix
 
 ##########################################
 # Creating HDInsight Cluster
