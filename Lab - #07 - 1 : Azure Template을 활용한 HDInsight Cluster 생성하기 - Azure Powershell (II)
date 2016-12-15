@@ -27,7 +27,7 @@ $templateFile = "[template file in Container]"
 $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey "[Storage Account Key]"
 Set-AzureRmCurrentStorageAccount -Context $defaultStorageAccountContext
 # Name : Name of the Storage Account
-#Set-AzureRmCurrentStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName --> (주의) -Name을 인식하지 못함
+# Set-AzureRmCurrentStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName --> (주의) -Name을 인식하지 못함
 $templateFileUri = New-AzureStorageBlobSASToken -Container $armTemplateContainer -Blob $templateFile -Permission r -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 ##########################################
