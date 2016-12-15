@@ -11,9 +11,8 @@ Select-AzureRmSubscription -SubscriptionName "[Your Subscription Name]"
 ##########################################
 # Set these variables
 ##########################################
-$templateFile = "[template file in local or azure blob]" 
-# (ex) template file in local : "C:\create-linux-based-spark-cluster-in-hdinsight-demo-1.6.2.json"
-# (ex) template file in azure blob : "C:\create-linux-based-spark-cluster-in-hdinsight-demo-1.6.2.json"
+$templateFile = "[template file in local]" 
+# (ex) template file in local : "C:\testTemplate.json"
 
 ##########################################
 # Service names and varialbes
