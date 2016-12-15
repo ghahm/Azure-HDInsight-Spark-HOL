@@ -7,6 +7,7 @@
 
 azure login
 azure config mode arm
-azure group deployment create --resource-group "[Your Resource Group Name]" --name "[Your Group Deployment Name]" --template-file "[template file in local or azure blob]" -p "{\"clusterName\":{\"value\":\"[Your Cluster Name]\"}"
-# (예시) azure group deployment create --resource-group -AZURE-HOL-GRP" --name "testtmpdeployment" --template-file "C:\template.json" -p "{\"clusterName\":{\"value\":\"holspark162\"}}"
-
+azure group create -n [Resource Group Name] -l "[Location Name]"
+# (예시) azure group create -n HOL-SPARK-GRP -l "Japan West"
+azure group deployment create --resource-group "[Resource Group Name]" --name "[Group Deployment Name]" --template-file "[template file in local or azure blob]" -p "{\"clusterName\":{\"value\":\"[Cluster Name]\"}"
+# (예시) azure group deployment create --resource-group "HOL-SPARK-GRP" --name "templateDeployment" --template-file "ARMTemplate\sparkTemplate.json" -p "{\"clusterName\":{\"value\":\"holspark162\"}}"
