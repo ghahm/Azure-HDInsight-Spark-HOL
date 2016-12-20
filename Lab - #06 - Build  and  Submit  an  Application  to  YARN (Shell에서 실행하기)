@@ -9,4 +9,4 @@ splitRdd = baseRdd.flatMap(lambda line: line.split(" "))
 mappedRdd = splitRdd.map(lambda line: (line,1))
 
 reducedRdd = mappedRdd.reduceByKey(lambda a,b: a+b)
-reducedRdd.sortBy(lambda x: x[1], False).take(100)
+reducedRdd.sortBy(lambda x: x[1], False).take(10)
