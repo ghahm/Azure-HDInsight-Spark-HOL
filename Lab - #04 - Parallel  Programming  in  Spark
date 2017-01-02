@@ -1,5 +1,5 @@
 # 1. RDD 생성
-flightRdd=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/Lab01/flights.csv').map(lambda line: line.split(",")) 
+flightRdd=sc.textFile(''wasbs://[container명]@[storageaccount명].blob.core.windows.net/HOL-Data/Lab01/flights.csv').map(lambda line: line.split(",")) 
 # flightRdd.getNumPartitions()
 
 # 2. RDD 파티션 개수 조회
@@ -7,7 +7,7 @@ flightsKVRdd=flightRdd.keyBy(lambda line: (line[5]))
 flightsKVRdd.getNumPartitions() # flightRdd.getNumPartitions()의 파티션 결과와 동일
 
 # 3. 추가 RDD 생성
-carrierRdd = sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/Lab01/carriers.csv'). \
+carrierRdd = sc.textFile(''wasbs://[container명]@[storageaccount명].blob.core.windows.net/HOL-Data/Lab01/carriers.csv'). \
                     map(lambda line: line.split(",")). \
                     map(lambda line: (line[0], line[1]))
                     
