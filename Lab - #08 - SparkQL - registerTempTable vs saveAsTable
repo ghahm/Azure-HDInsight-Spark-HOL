@@ -1,0 +1,6 @@
+# <분석 요건> 운항 편수 Top 10 항공사 조회
+
+from pyspark.sql.types import *
+
+# 1.1. RDD 생성하고 자료 조회하기
+flightRdd=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/Lab01/flights.csv').map(lambda line: line.split(",")) 
