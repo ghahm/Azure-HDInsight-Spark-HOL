@@ -3,7 +3,7 @@ from pyspark.sql import SQLContext
 
 conf = SparkConf().setAppName("Word-Count") # only for pyspark-shell
 sc = SparkContext(conf=conf) # only for pyspark-shell
-baseRdd = sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/Lab01/selfishgiant.txt')
+baseRdd = sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/sparkhol/wordcount-data/Harry-Potter-and-the-Sorcerer.txt')
 
 splitRdd = baseRdd.flatMap(lambda line: line.split(" "))
 mappedRdd = splitRdd.map(lambda line: (line,1))
