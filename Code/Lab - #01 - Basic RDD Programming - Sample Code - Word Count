@@ -1,6 +1,10 @@
 
 # Word count 예제
 
+# 0. (Optionla) HDInsight Spark 클러스터 생성 시, 등록하지 않은 Storage Account의 데이터를 로딩할 경우에만 필요
+spark._jsc.hadoopConfiguration().set("fs.azure.account.keyprovider.[storageaccount명].blob.core.windows.net","org.apache.hadoop.fs.azure.SimpleKeyProvider")
+spark._jsc.hadoopConfiguration().set("fs.azure.account.key.[storageaccount명].blob.core.windows.net","[storageaccount ]")
+
 # 1. RDD 생성하고 자료 조회하기
 baseRdd = sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/sparkhol/wordcount-data/Harry-Potter-and-the-Sorcerer.txt') #text file load
 baseRdd.take(1) # 첫번째 행 return
