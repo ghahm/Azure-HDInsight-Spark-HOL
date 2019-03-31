@@ -1,7 +1,7 @@
 # <분석 요건> 1500 마일을 초과하는 항공편의 항공기 모델명과 운항 횟수
 
 # 3.1 flightRDD 생성하기
-flightRdd=sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/HOL-Data/Lab01/flights.csv').map(lambda line: line.split(","))
+flightRdd=sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/sparkhol/flight-data/flights.csv').map(lambda line: line.split(","))
 
 # 3.2. Distance 1,500 마일 이상 return -> (TailNum, 1) return
 longDistanceFlightRDD = flightRdd.filter(lambda line: int(line[14]) > 1500). \
@@ -17,7 +17,7 @@ longDistanceFlightRDD = longDistanceFlightRDD.reduceByKey(lambda a, b: a+b). \
 longDistanceFlightRDD.take(10) # TailNum, 1,500 마일 이상 운항 횟수 (내림차순)
 
 # 3.4 PlaneDataRDD 생성 -> 헤더 행 필터링 & split -> 각 plane 행의 정보가 부족할 경우 필터링 -> TailNum & Model return
-planeDataRDD=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/Lab01/plane-data.csv')
+planeDataRDD=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/sparkhol/flight-data/plane-data.csv')
 header = planeDataRDD.first() #extract header
 planeDataRDD = planeDataRDD.filter(lambda x:x !=header). \
                                             map(lambda line: line.split(",")) # filter header & split
