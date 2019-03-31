@@ -3,7 +3,7 @@
 from pyspark.sql.types import *
 
 # 1.1. RDD 생성하고 자료 조회하기
-flightRdd=sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/HOL-Data/Lab01/flights.csv').map(lambda line: line.split(",")) 
+flightRdd=sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/sparkhol/flight-data/flights.csv').map(lambda line: line.split(",")) 
 
 # 1.2 스키마 및 파싱 정보 정의 -> DataFrame 생성 -> TempTable 생성 
 # 스키마 정의
