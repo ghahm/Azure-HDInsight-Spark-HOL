@@ -17,11 +17,11 @@ ordersRdd3.getNumPartitions()
 ordersRdd3.count()
 
 # Spark Web UI의 Stage 메뉴에서 task 개수를 참고하여 파티션 수 확인 -> 총 파일 수 : 1.6 MB 파일 7개 & 164 MB 1개 --> RDD 파티션 9개
-ordersRdd2=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/sparkhol/rdd-partition-data/ordersTbl/*/orders.tbl').map(lambda line: line.split("|")) 
-ordersRdd2.getNumPartitions()
+ordersRdd4=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/sparkhol/rdd-partition-data/ordersTbl/*/orders.tbl').map(lambda line: line.split("|")) 
+ordersRdd4.getNumPartitions()
 
-ordersRdd2.count()
+ordersRdd4.count()
 
 # Spark Web UI의 Storage 메뉴에서 파티션 수 확인 -> 총 파일 수 : 1.6 MB 파일 7개 & 164 MB 1개 --> RDD 파티션 9개
-ordersRdd2.cache()
-ordersRdd2.count()
+ordersRdd4.cache()
+ordersRdd4.count()
