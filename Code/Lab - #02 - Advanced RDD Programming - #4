@@ -1,17 +1,17 @@
 # Spark Web UI의 Stage 메뉴에서 task 개수를 참고하여 파티션 수 확인 -> 총 파일 수 : 1.6 MB 파일 1개  --> RDD 파티션 2개
-ordersRdd1=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/tpch/ordersTbl/10M-1/orders.tbl').map(lambda line: line.split("|")) 
+ordersRdd1=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/sparkhol/rdd-partition-data/ordersTbl/small-01/orders.tbl').map(lambda line: line.split("|")) 
 ordersRdd1.getNumPartitions()
 
 ordersRdd1.count()
 
 # Spark Web UI의 Stage 메뉴에서 task 개수를 참고하여 파티션 수 확인 -> 총 파일 수 : 1.6 MB 파일 2개  --> RDD 파티션 2개
-ordersRdd2=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/tpch/ordersTbl/10M-[1-2]/orders.tbl').map(lambda line: line.split("|")) 
+ordersRdd2=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/rdd-partition-data/ordersTbl/small-[01-02]/orders.tbl').map(lambda line: line.split("|")) 
 ordersRdd2.getNumPartitions()
 
 ordersRdd2.count()
 
 # Spark Web UI의 Stage 메뉴에서 task 개수를 참고하여 파티션 수 확인 -> 총 파일 수 : 1.6 MB 파일 3개  --> RDD 파티션 3개
-ordersRdd3=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/HOL-Data/tpch/ordersTbl/10M-[1-3]/orders.tbl').map(lambda line: line.split("|")) 
+ordersRdd3=sc.textFile('wasbs://ghtestbigdata@ghtestdatastacc.blob.core.windows.net/rdd-partition-data/ordersTbl/small-[01-03]/orders.tbl').map(lambda line: line.split("|")) 
 ordersRdd3.getNumPartitions()
 
 ordersRdd3.count()
