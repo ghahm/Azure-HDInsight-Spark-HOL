@@ -63,11 +63,11 @@ flightDF.registerTempTable("flightTable")
 #flightDF.show()
 flightDF.take(5)
 
-# 1.3 sqlContext를 이용하여 쿼리 수행 
-resultDF = sqlContext.sql(" SELECT UniqueCarrier, count(UniqueCarrier) as cnt \
+# 1.3 sqlContext를 이용하여 쿼리 수행 (주의 : 코드를 Copy하면 쿼리 사이에 빈 라인이 생겨 에러 발생. 해당 빈 라인을 삭제할 )
+resultDF = sqlContext.sql("SELECT UniqueCarrier, count(UniqueCarrier) as cnt \
                         FROM flightTable \
                         GROUP BY UniqueCarrier \
-                        ORDER BY cnt DESC ")
+                        ORDER BY cnt DESC")
 resultDF.collect()
 
 # 1.4 %%sql magic 정의 -> 쿼리 수행 (주의 : 아래 sql magic이 포함된 셀에는 # comment를 추가하면 에러 발생하기 때문에 별도의 셀로 작성)
