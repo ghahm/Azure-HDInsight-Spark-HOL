@@ -22,6 +22,6 @@ ordersRdd4.getNumPartitions()
 
 ordersRdd4.count()
 
-# Spark Web UI의 Storage 메뉴에서 파티션 수 확인 -> 총 파일 수 : 1.6 MB 파일 7개 & 164 MB 1개 --> RDD 파티션 9개
+# Jupyter의 Spark UI의 Storage 메뉴에서 파티션 수 확인 -> 총 파일 수 : 1.6 MB 파일 7개 & 164 MB 1개 --> RDD 파티션 9개 (업데이트 되는데 시간이 다소 소요됨)
 ordersRdd4.cache()
 ordersRdd4.count()
