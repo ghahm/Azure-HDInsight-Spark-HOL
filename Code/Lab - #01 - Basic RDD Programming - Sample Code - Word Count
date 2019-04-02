@@ -1,7 +1,7 @@
 
 # Word count 예제
 
-# 0. (Optionla) HDInsight Spark 클러스터 생성 시, 등록하지 않은 Storage Account의 데이터를 로딩할 경우에만 필요
+# 0. (Optional) HDInsight Spark 클러스터 생성 시, 등록하지 않은 Storage Account의 데이터를 로딩할 경우에만 필요
 spark._jsc.hadoopConfiguration().set("fs.azure.account.keyprovider.[storageaccount명].blob.core.windows.net","org.apache.hadoop.fs.azure.SimpleKeyProvider")
 spark._jsc.hadoopConfiguration().set("fs.azure.account.key.[storageaccount명].blob.core.windows.net","[storageaccount 키]")
 
