@@ -69,7 +69,7 @@ GROUP BY UniqueCarrier
 ORDER BY cnt DESC
 
 # 1.5 쿼리 수행을 위하여 DataFrame을 영구 테이블로 저장 (Saves the content of the DataFrame as the specified table)
-flightDF.saveAsTable("flightDSTable") --> 업데이트 
+flightDF.write.saveAsTable("flightDSTable")
 
 # 1.6 Table 현황 조회 (Temporary 테이블과 Permanent 테이블)
 %%sql
