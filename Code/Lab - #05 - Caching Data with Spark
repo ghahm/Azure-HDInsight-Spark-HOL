@@ -14,8 +14,6 @@ from pyspark import StorageLevel
 joinedRdd.cache()
 joinedRdd.count()
 
-joinedRdd.count()
-
 # 3. persisting (or caching) 수행 이전과 이후 수행 결과를 Spark UI의 Stages에서 수행 시간 차이를 확인
 joinedRdd.count()
 
