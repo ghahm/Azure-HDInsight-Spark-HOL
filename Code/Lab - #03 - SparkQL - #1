@@ -4,6 +4,8 @@ from pyspark.sql.types import *
 
 # 1.1. RDD 생성하고 자료 조회하기
 flightRdd=sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/sparkhol/flight-data/flights.csv').map(lambda line: line.split(",")) 
+#blob storage는 아래 코드 
+#flightRdd=sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/sparkhol/flight-data/flights.csv').map(lambda line: line.split(",")) 
 flightRdd.take(3)
 
 # flightRdd.collect() (주의) 실행하지 말 것. (해당 파일이 대용량으로 jupyter 내 조회 시간이 오래 소요됨)
