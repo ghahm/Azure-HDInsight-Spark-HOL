@@ -6,7 +6,11 @@ spark._jsc.hadoopConfiguration().set("fs.azure.account.keyprovider.[storageaccou
 spark._jsc.hadoopConfiguration().set("fs.azure.account.key.[storageaccount명].blob.core.windows.net","[storageaccount 키]")
 
 # 1. RDD 생성하고 자료 조회하기
-baseRdd = sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/sparkhol/wordcount-data/Harry-Potter-and-the-Sorcerer.txt') #text file load
+#ADLS Gen2는 아래 코드
+flightRdd=sc.textFile('abfss://[container명]@[storageaccount명].dfs.core.windows.net/sparkhol/wordcount-data/Harry-Potter-and-the-Sorcerer.txt') #text file load
+#blob storage는 아래 코드 
+#flightRdd=sc.textFile('wasbs://[container명]@[storageaccount명].blob.core.windows.net/sparkhol/wordcount-data/Harry-Potter-and-the-Sorcerer.txt') #text file load
+
 baseRdd.take(1) # 첫번째 행 return
 #baseRdd.collect() # 전체 데이터 return
 
