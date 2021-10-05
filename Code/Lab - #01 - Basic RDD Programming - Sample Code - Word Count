@@ -31,7 +31,6 @@ mappedRdd.take(5)
 # reduceByKey() : Merge the values for each key using an associative reduce function
 reducedRdd = mappedRdd.reduceByKey(lambda a,b: a+b) # 각 Key의 Integer 값을 합산
 #reducedRdd.take(20)
-
 reducedRdd.collect()
 
 # 5. reducedRdd를 2번째 컬럼을 기준으로 내림차순 정렬하여 Top 10 Word Count를 조회
